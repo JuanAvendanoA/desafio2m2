@@ -1,0 +1,127 @@
+body {
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+    font-family: Arial, sans-serif; /*fuente seleccionada en el body*/
+    background: #f4f4f4; /*fondo gris claro*/
+}
+
+.container {
+    display: grid;
+    grid-template-areas: /*separacion de grilla consiste en 2 columnas y 3 filas*/
+        "navbar navbar" /*primera fila ambos espacios para navbar*/
+        "sidebar products"/*segunda fila sidebar y products*/
+        "footer footer"; /*tercera fila ambos espacios para footer*/
+    grid-template-columns: 220px 1fr; /*medida de columnas*/
+    grid-template-rows: 60px 1fr 40px; /*medida de filas*/
+    min-height: 100vh; /*altura minima de la pantalla*/
+    gap: 0; /*sin espacio entre filas y columnas*/
+    background: white;
+}
+
+.navbar {
+    grid-area: navbar; /*asignacion de area navbar*/
+    background: #29415a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra horizontalmente */
+    font-size: 1.3rem; /*tamaño de fuente*/
+    font-weight: bold;
+}
+
+.sidebar {
+    grid-area: sidebar; /*asignacion de area sidebar*/
+    background: #eaeaea;
+    padding: 20px 10px;
+    display: flex; /* Flexbox para organizar el contenido */
+    flex-direction: column; /* Dirección de los elementos en columna */
+    gap: 10px;
+}
+
+.sidebar h3 {   /* Estilo para el título de la barra lateral */
+    margin-top: 0; /* Elimina el margen superior */
+    font-size: 1.1rem; /*tamaño de fuente*/
+}
+
+.sidebar ul { /* Estilo para la lista de categorías */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar li a { /* Estilo para los enlaces de las categorías */
+    color: #444;
+    text-decoration: none;
+    font-size: 0.98rem;
+}
+
+.products { /*asignacion de area products*/
+    grid-area: products;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* repeat creara tantas columnas como quepan, minmax 220px y 1fr indica el ancho columna, todo esto para que sea reponsivo y se ajuste a diferentes tamaños de pantalla */
+    gap: 20px;
+    padding: 30px 20px;
+    background: #f4f4f4;
+}
+
+.product-card {
+    background: #fff;
+    border: 1.5px solid #bdbdbd; /* Borde más visible */
+    border-radius: 0;             /* Sin bordes redondeados */
+    box-shadow: none;             /* Sin sombra */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 8px 0 8px;      /* Menos padding y sin padding abajo */
+    gap: 8px;
+    min-height: 350px;            /* Altura mínima para alinear el botón abajo */
+    position: relative;
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 180px;             /* Imagen más grande */
+    height: 140px;                /* Altura fija para uniformidad */
+    object-fit: contain;
+}
+
+.product-card h4 {
+    margin: 10px 0 0 0;
+    font-size: 1.08rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.product-card span {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.product-card button {
+    background: #29415a;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 10px 0;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.footer {
+    grid-area: footer;
+    background: #eaeaea;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 1rem;
+}
